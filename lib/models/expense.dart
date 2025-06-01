@@ -1,3 +1,5 @@
+// lib/models/expense.dart
+
 import 'package:hive/hive.dart';
 
 part 'expense.g.dart';
@@ -5,17 +7,18 @@ part 'expense.g.dart';
 @HiveType(typeId: 0)
 class Expense extends HiveObject {
   @HiveField(0)
-  String description;
+  late String description;
 
   @HiveField(1)
-  double amount;
+  late double amount;
 
   @HiveField(2)
-  DateTime date;
+  late DateTime date;
 
   @HiveField(3)
-  String category;
+  late String category;
 
+  /// For new expenses, you do NOT pass a key; Hive will assign one when .add(...) is called.
   Expense({
     required this.description,
     required this.amount,
